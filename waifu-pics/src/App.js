@@ -1,5 +1,6 @@
 import useData from "./Components/useData.js";
 import WaifuPic from "./Components/WaifuPic.js"
+import { ClipLoader } from "react-spinners";
 import './App.css';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      {loading && <div> Loading... </div>}
+      {loading && <ClipLoader />}
       {!loading && <WaifuPic url={waifuUrl} />}
     </div>
   );
