@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import axios from 'axios'
+import WaifuPic from './WaifuPic';
+import { ClipLoader } from "react-spinners";
+import '../App.css'
 
-const WaifuGetter = () => {
+function WaifuGetter() {
 
     const [picData, setPic] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -11,13 +14,18 @@ const WaifuGetter = () => {
         axios.get('https://api.waifu.pics/sfw/waifu').then((response) => {
             setPic(response.data.url);
             setIsLoading(false);
-            console.log(picData);
         })
     }
+    console.log(picData);
 
+    return (
+        <div>
+            {isLoading && <ClipLoader />}
+            {!isLoading && <WaifuPic url={picData} />}
+            <button onClick={() => setPic(null)}> Hey </button>
+        </div>
 
-
-    return { picData, isLoading }
+    )
 
 }
 
