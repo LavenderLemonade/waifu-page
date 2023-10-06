@@ -2,7 +2,6 @@ import { useState } from 'react'
 import axios from 'axios'
 import WaifuPic from './WaifuPic';
 import { ClipLoader } from "react-spinners";
-import '../App.css'
 
 function WaifuGetter() {
 
@@ -19,10 +18,10 @@ function WaifuGetter() {
     console.log(picData);
 
     return (
-        <div>
+        <div className='Secondary'>
             {isLoading && <ClipLoader />}
             {!isLoading && <WaifuPic url={picData} />}
-            <button onClick={() => setPic(null)}> Hey </button>
+            <button onClick={() => setPic(null)}> Next Picture! </button>
         </div>
 
     )
