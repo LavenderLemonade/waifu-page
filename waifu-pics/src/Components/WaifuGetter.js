@@ -10,7 +10,7 @@ function WaifuGetter() {
 
     if (picData == null) {
         console.log('hit')
-        axios.get('https://api.waifu.pics/sfw/waifu').then((response) => {
+        axios.get('https://api.waifu.pics/nsfw/waifu').then((response) => {
             setPic(response.data.url);
             setIsLoading(false);
         })
